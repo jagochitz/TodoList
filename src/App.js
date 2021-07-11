@@ -25,6 +25,7 @@ function App() {
   const [userNameSignPass, setUserNameSignPass] = useState("");
   const [usersPass, setUsersPass] = useState([]);
   const [userOnLine, setUserOnLine] = useState("");
+  const [userNameLoginPass, setUserNameLoginPass] = useState("");
   /*
    * States
    */
@@ -99,6 +100,9 @@ function App() {
             setLoginTodo={setLoginTodo}
             handleLogin={handleLogin}
             setUserOnLine={setUserOnLine}
+            usersPass={usersPass}
+            userNameLoginPass={userNameLoginPass}
+            setUserNameLoginPass={setUserNameLoginPass}
           />
         ) : (
           <Signup
@@ -114,6 +118,8 @@ function App() {
             usersPass={usersPass}
             setUsersPass={setUsersPass}
             setUserOnLine={setUserOnLine}
+            userNameLoginPass={userNameLoginPass}
+            setUserNameLoginPass={setUserNameLoginPass}
           />
         )}
       </main>

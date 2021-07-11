@@ -15,11 +15,13 @@ function Signup({
   function handleSignupTodo() {
     if (userNames.find((item) => item === userNameSign)) {
       alert("nome de usuário já cadastrado");
+    } else if (userNameSign === "" || userNameSignPass === "") {
+      alert("usuário ou senha inválidos");
     } else {
-      userNames.push(userNameSign);
+      setUserNames([...userNames, userNameSign]);
+      setUsersPass([...usersPass, userNameSignPass]);
+      setSignupTodo(!signupTodo);
     }
-    setUsersPass([...usersPass, userNameSignPass]);
-    setSignupTodo(!signupTodo);
     setUserOnLine(userNameSign);
   }
   return (
