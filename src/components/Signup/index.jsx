@@ -1,3 +1,5 @@
+import { ButtonMain, Button, Input, SectionMain } from "../../style";
+
 function Signup({
   handleSignup,
   userNameSignPass,
@@ -13,34 +15,36 @@ function Signup({
   setUserOnLine,
 }) {
   function handleSignupTodo() {
-    if (userNames.find((item) => item === userNameSign)) {
+    if ([userNames].find((item) => item.name === userNameSign)) {
       alert("nome de usuário já cadastrado");
     } else if (userNameSign === "" || userNameSignPass === "") {
       alert("usuário ou senha inválidos");
     } else {
-      setUserNames([...userNames, userNameSign]);
-      setUsersPass([...usersPass, userNameSignPass]);
+      setUserNames([...[userNames], userNameSign]);
+      setUsersPass([...[usersPass], userNameSignPass]);
       setSignupTodo(!signupTodo);
     }
     setUserOnLine(userNameSign);
   }
   return (
-    <div>
-      <input
+    <SectionMain>
+      <Input
         placeholder="Username"
         type="text"
         value={userNameSign}
         onChange={(e) => setUserNameSign(e.target.value)}
       />
-      <input
+      <Input
         placeholder="Password"
         type="password"
         value={userNameSignPass}
         onChange={(e) => setUserNameSignPass(e.target.value)}
       />
-      <button onClick={handleSignup}> homeSig</button>
-      <button onClick={handleSignupTodo}>cadastrar</button>
-    </div>
+      <ButtonMain>
+        <Button onClick={handleSignupTodo}>cadastrar</Button>
+        <Button onClick={handleSignup}> voltar</Button>
+      </ButtonMain>
+    </SectionMain>
   );
 }
 

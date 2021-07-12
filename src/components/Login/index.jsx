@@ -1,3 +1,5 @@
+import { Input, Button, ButtonMain, Main, Paragraph, Link } from "../../style";
+
 function Login({
   handleLogin,
   loginTodo,
@@ -12,29 +14,35 @@ function Login({
 }) {
   function handleLoginTodo() {
     setUserNameInput(userNameInput);
-    userNames.find((item) => item === userNameInput) &&
-    usersPass.find((item) => item === userNameLoginPass)
+    setUserNameLoginPass(userNameLoginPass);
+    [userNames].find((item) => item === userNameInput) &&
+    [usersPass].find((item) => item === userNameLoginPass)
       ? setLoginTodo(!loginTodo)
       : alert("usuário ou senha inválidos");
     setUserOnLine(userNameInput);
   }
   return (
-    <>
-      <input
+    <Main>
+      <Input
         placeholder="Username"
         type="text"
         value={userNameInput}
         onChange={(e) => setUserNameInput(e.target.value)}
       />
-      <input
-        placeholder="Username"
-        type="text"
+      <Input
+        placeholder="Password"
+        type="password"
         value={userNameLoginPass}
         onChange={(e) => setUserNameLoginPass(e.target.value)}
       />
-      <button onClick={handleLoginTodo}>login</button>
-      <button onClick={handleLogin}>Voltar</button>
-    </>
+      <ButtonMain>
+        <Button onClick={handleLoginTodo}>login</Button>
+        <Button onClick={handleLogin}>Voltar</Button>
+      </ButtonMain>
+      <Paragraph>
+        Ainda não é cadastrado? Clique <Link>aqui</Link>
+      </Paragraph>
+    </Main>
   );
 }
 
