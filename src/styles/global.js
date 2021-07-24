@@ -10,14 +10,14 @@ export default createGlobalStyle`
     }
 
     :root {
-        --white: #f5f5f5;
-        --vanilla: #f1ede0;
-        --title-color: #046CFC;
-        --text-color: #549AFC;
-        --black: #0d0c0c;
-        --background: #001738;
-        --input-text:#0f3c4c;
-        --red: #c53030;
+        --primary: #D7A119;
+        --secondary: #C3DBE2;
+        --black: #212325;
+        --white: #F5F5F5;
+        --red: #AA262C;
+        --gray: #617781;
+        --light-blue: #369FBE;
+        --blue: #327AAB;
     }
 
     body {
