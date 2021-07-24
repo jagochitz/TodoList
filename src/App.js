@@ -1,5 +1,7 @@
+import Routes from "./routes";
+
 function App() {
-  return <div className="mask"></div>;
+  return <Routes></Routes>;
 }
 
 export default App;
