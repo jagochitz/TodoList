@@ -7,11 +7,24 @@ export const Container = styled.div`
   align-items: stretch;
 `;
 
+const appearFromLeft = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+`;
+
 export const Background = styled.div`
   @media (min-width: 900px) {
     flex: 1;
     background: url(${SignupImage}) no-repeat center, var(--black);
     background-size: contain;
+    animation: ${appearFromLeft} 1s;
   }
 `;
 
