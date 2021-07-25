@@ -21,14 +21,14 @@ export default createGlobalStyle`
     }
 
     body {
-        background: var(---vanilla);
-        color: var(--white);
+        background: var(--secondary);
+        color: var(--black);
     }
 
     body, input, button {
         font-family: 'PT Serif', serif;
         font-size: 1rem;
-        background-color: var(--background)
+        background-color: var(--secondary)
     }
 
     h1,h2,h3,h4,h5,h6 {
