@@ -6,7 +6,7 @@ import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 
 function Routes() {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(true);
   const history = useHistory();
   const handleLogout = () => {
     history.push("/login");
