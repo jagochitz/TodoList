@@ -1,41 +1,30 @@
-import { useEffect, useState } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
+import Menu from "../components/Menu";
+import { useState } from "react";
 
 function Routes() {
-  const [authenticated, setAuthenticated] = useState(true);
-  const history = useHistory();
-  const handleLogout = () => {
-    history.push("/login");
-    localStorage.clear();
-    setAuthenticated(false);
-  };
-
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@kenzieHub:token"));
-    if (token) {
-      return setAuthenticated(true);
-    }
-  }, [authenticated]);
+  const [dash, setDash] = useState(true);
   return (
     <Switch>
       <Route exact path="/">
-        <Home authenticated={authenticated} />
+        <Menu dash={dash} />
+        <Home />
       </Route>
       <Route path="/signup">
-        <Signup authenticated={authenticated} />
+        <Menu dash={dash} />
+        <Signup />
       </Route>
       <Route path="/login">
-        <Login
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
+        <Menu dash={dash} />
+        <Login />
       </Route>
       <Route path="/dashboard">
-        <Dashboard handleLogout={handleLogout} authenticated={authenticated} />
+        <Menu dash={dash} />
+        <Dashboard />
       </Route>
     </Switch>
   );

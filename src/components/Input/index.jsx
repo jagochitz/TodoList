@@ -8,7 +8,8 @@ function Input({ label, icon: Icon, register, name, error, ...rest }) {
       </div>
       <InputContainer isErrored={!!error}>
         {Icon && <Icon />}
-        <input {...register(name)} {...rest} />
+        {/* <input {...register(name)} {...rest} /> */}
+        <input {...rest} />
       </InputContainer>
     </Container>
   );
