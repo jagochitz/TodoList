@@ -10,25 +10,24 @@ export default createGlobalStyle`
     }
 
     :root {
-        --primary: #D7A119;
-        --secondary: #C3DBE2;
+        --primary: #FF29BB;
+        --secondary: #B33D8C;
         --black: #212325;
         --white: #F5F5F5;
         --red: #AA262C;
         --gray: #617781;
-        --light-blue: #369FBE;
-        --blue: #327AAB;
+        --yellow: #FFE242;
     }
 
     body {
-        background: var(--secondary);
+        background: var(--white);
         color: var(--black);
     }
 
     body, input, button {
         font-family: 'PT Serif', serif;
         font-size: 1rem;
-        background-color: var(--secondary)
+        background-color: var(--white)
     }
 
     h1,h2,h3,h4,h5,h6 {
@@ -42,5 +41,9 @@ export default createGlobalStyle`
 
     a {
         text-decoration: none;
+    }
+
+    .hidden {
+        display: none;
     }
 `;

@@ -1,32 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import LoginImage from "../../assets/black-clover-bg.png";
-
-export const Container = styled.article`
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-`;
-
-const appearFromRight = keyframes`
-from {
-    opacity: 0;
-    transform: translateX(50px);
-}
-
-to {
-    opacity: 1;
-    transform: translateX(0px)
-}   
-`;
-
-export const Background = styled.section`
-  @media (min-width: 900px) {
-    flex: 1;
-    background: url(${LoginImage}) no-repeat center, var(--black);
-    background-size: contain;
-    animation: ${appearFromRight} 1s;
-  }
-`;
 
 export const Content = styled.div`
   display: flex;
@@ -34,18 +6,46 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 700px;
+  max-width: 350px;
+  padding: 50px;
+  margin: 5rem auto;
+  border: 5px solid var(--secondary);
+  border-radius: 50px;
+  h1 {
+    color: var(--primary);
+  }
+  div {
+    margin-top: 15px;
+  }
+  button {
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+  }
+  @media (min-width: 900px) {
+    max-width: 700px;
+    padding: 100px;
+    h1 {
+      font-size: 2.5rem;
+    }
+    div {
+      width: 400px;
+    }
+    button {
+      width: 200px;
+    }
+  }
 `;
 
 const appearFromLeft = keyframes`
     from {
         opacity: 0;
-        transform: translateX(-50px);
+
     }
 
     to {
         opacity: 1;
-        transform: translateX(0px);
+
     }
 `;
 

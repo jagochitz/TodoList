@@ -1,59 +1,110 @@
 import styled from "styled-components";
-import BackgroundImage from "../../assets/animes-mix-bg.png";
 
-export const Container = styled.section`
+export const Container = styled.article`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
-  background: url(${BackgroundImage}) no-repeat;
-  background-size: cover;
+  padding: 20px;
+
+  @media (min-width: 900px) {
+    div {
+      img {
+        display: flex;
+      }
+    }
+  }
 `;
 
-export const Content = styled.div`
-  background-color: rgba(0, 0, 0, 0.6);
-  max-width: 400px;
-  border-radius: 10px;
+export const TitleContent = styled.section`
+  display: flex;
 
   h1 {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 5rem 0;
     font-size: 2.5rem;
     color: var(--primary);
     span {
-      color: var(--secondary);
+      color: var(--yellow);
     }
   }
-  span {
-    color: var(--secondary);
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    flex-wrap: wrap;
+
+  img {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    h1 {
+      font-size: 5rem;
+    }
+    img {
+      width: 40%;
+      display: flex;
+    }
+  }
+`;
+
+export const ContentContainer = styled.section`
+  margin: 7rem 0;
+  img {
+    display: none;
   }
 
   div {
-    flex: 1;
-    display: flex;
-    margin-top: 1rem;
-
+    width: 80%;
+    margin: 0 auto;
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    button {
+      width: 200px;
+      height: 75px;
+      a {
+        color: var(--white);
+      }
+      &:hover {
+        a {
+          color: var(--black);
+        }
+      }
+    }
     button + button {
-      margin-left: 1rem;
+      margin-top: 4rem;
     }
   }
-
   @media (min-width: 900px) {
-    max-width: 60%;
-    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    h1 {
-      margin-bottom: 5rem;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: 0;
+
+      p {
+        width: 80%;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+      button {
+        width: 250px;
+        height: 75px;
+      }
     }
-    span {
-      margin-bottom: 5rem;
+    img {
+      width: 40%;
+      display: flex;
     }
 
-    button {
-      margin-top: 5rem;
+    button + button {
+      margin-top: 4rem;
     }
   }
 `;

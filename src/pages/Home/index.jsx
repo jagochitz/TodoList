@@ -1,32 +1,34 @@
-import { Container, Content } from "./styles";
+import { Link, useHistory } from "react-router-dom";
+import tasksImage from "../../assets/add-tasks.png";
+import checkListImage from "../../assets/check-list.png";
 import Button from "../../components/Button";
-import { Redirect, useHistory } from "react-router-dom";
+import { Container, ContentContainer, TitleContent } from "./styles";
 
-function Home({ authenticated }) {
+function Home() {
   const history = useHistory();
 
   const handleNavigation = (path) => {
-    return history.push(path);
+    history.push(path);
   };
-
-  if (authenticated) {
-    return <Redirect to="/dashboard" />;
-  }
 
   return (
     <Container>
-      <Content>
+      <TitleContent>
         <h1>
-          animes do<span>.</span>it
+          do<span>.</span>it yourself
         </h1>
-        <span>Organize suas tarefas de forma ágil e descomplicada</span>
+        <img src={tasksImage} alt="tasksImg" />
+      </TitleContent>
+      <ContentContainer>
+        <img src={checkListImage} alt="checkListImg" />
         <div>
-          <Button onClick={() => handleNavigation("/signup")} whiteSchema>
+          <p>Uma maneira fácil de organizar e planejar o seu dia-a-dia</p>
+          <Button onClick={() => handleNavigation("/signup")}>
             Cadastre-se
           </Button>
-          <Button onClick={() => handleNavigation("/login")}>Login</Button>
+          <Button onClick={() => handleNavigation("/login")}>Entrar</Button>
         </div>
-      </Content>
+      </ContentContainer>
     </Container>
   );
 }
