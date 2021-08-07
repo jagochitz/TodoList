@@ -22,6 +22,9 @@ export const InputContainer = styled.div`
     props.isErrored &&
     css`
       border-color: var(--red);
+      svg {
+        color: var(--red);
+      }
     `}
   input {
     background: transparent;

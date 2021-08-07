@@ -4,27 +4,47 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import Menu from "../components/Menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Routes() {
-  const [dash, setDash] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("@todo-list:token"));
+
+    if (token) {
+      return setAuthenticated(true);
+    }
+  }, [authenticated]);
   return (
     <Switch>
       <Route exact path="/">
-        <Menu dash={dash} />
-        <Home />
+        <Menu authenticated={authenticated} />
+        <Home
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
       <Route path="/signup">
-        <Menu dash={dash} />
-        <Signup />
+        <Menu authenticated={authenticated} />
+        <Signup
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
       <Route path="/login">
-        <Menu dash={dash} />
-        <Login />
+        <Menu authenticated={authenticated} />
+        <Login
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
       <Route path="/dashboard">
-        <Menu dash={dash} />
-        <Dashboard />
+        <Menu authenticated={authenticated} />
+        <Dashboard
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
     </Switch>
   );
