@@ -2,7 +2,7 @@ import { FiCalendar, FiClipboard } from "react-icons/fi";
 import Button from "../../components/Button";
 import { Container } from "./styles";
 
-function Card({ title, date }) {
+function Card({ title, date, onClick }) {
   return (
     <Container>
       <span>
@@ -14,7 +14,7 @@ function Card({ title, date }) {
         <FiCalendar />
         {date}
       </time>
-      <Button>Concluir</Button>
+      <Button onClick={onClick}>Concluir</Button>
     </Container>
   );
 }

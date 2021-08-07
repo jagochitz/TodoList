@@ -22,6 +22,16 @@ export const Content = styled.div`
     height: 50px;
     margin-top: 30px;
   }
+  form {
+    text-align: center;
+  }
+  p {
+    margin-top: 15px;
+  }
+  a {
+    font-weight: bold;
+    color: var(--primary);
+  }
   @media (min-width: 900px) {
     max-width: 700px;
     padding: 100px;

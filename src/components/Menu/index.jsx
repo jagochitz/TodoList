@@ -3,10 +3,12 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { FiLogIn, FiLogOut, FiPlus } from "react-icons/fi";
 
-export default function Menu({ dash }) {
+export default function Menu({ authenticated }) {
+  const user = JSON.parse(localStorage.getItem("@todo-list:user"));
+
   return (
     <Container>
-      {!dash ? (
+      {!authenticated ? (
         <>
           <Link to="/">
             <img src={logo} alt="logo" />
@@ -27,7 +29,7 @@ export default function Menu({ dash }) {
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
-          <span>Usuário</span>
+          <span>{user && user.name}</span>
           <div>
             <Link to="/login">
               <FiLogOut size={32} />

@@ -11,9 +11,10 @@ export const InputContainer = styled.form`
   flex: 1;
   margin-top: 32px;
   padding: 0 38px;
-  section {
+  div {
     display: flex;
-    > div {
+    div {
+      width: 500px;
       max-width: 80%;
       flex: 1;
       margin-right: 16px;
@@ -32,7 +33,7 @@ export const TasksContainer = styled.div`
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
-
+  width: 100%;
   div {
     margin-top: 16px;
     margin-right: 32px;

@@ -1,15 +1,19 @@
-import { Link, useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import tasksImage from "../../assets/add-tasks.png";
 import checkListImage from "../../assets/check-list.png";
 import Button from "../../components/Button";
 import { Container, ContentContainer, TitleContent } from "./styles";
 
-function Home() {
+function Home({ authenticated }) {
   const history = useHistory();
 
   const handleNavigation = (path) => {
     history.push(path);
   };
+
+  if (authenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Container>
