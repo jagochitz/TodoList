@@ -74,6 +74,7 @@ function Login({ authenticated, setAuthenticated }) {
             register={register}
             name="password"
             error={errors.password?.message}
+            type='password'
           />
           <Button type="submit">Entrar</Button>
           <p>

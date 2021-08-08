@@ -84,6 +84,7 @@ function Signup({ authenticated }) {
             register={register}
             name="password"
             error={errors.password?.message}
+            type='password'
           />
           <Input
             label="Confirmação de Senha"
@@ -92,6 +93,7 @@ function Signup({ authenticated }) {
             register={register}
             name="passwordConfirm"
             error={errors.passwordConfirm?.message}
+            type='password'
           />
           <Button type="submit">Cadastrar</Button>
           <p>
