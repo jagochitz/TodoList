@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 function Signup({ authenticated }) {
   const schema = yup.object().shape({
@@ -51,47 +52,54 @@ function Signup({ authenticated }) {
   }
 
   return (
-    <Content>
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
-        <h1>Cadastro</h1>
-        <Input
-          label="Nome"
-          icon={FiUser}
-          placeholder="Qual o seu nome completo?"
-          register={register}
-          name="name"
-          error={errors.name?.message}
-        />
-        <Input
-          label="Email"
-          icon={FiMail}
-          placeholder="Seu melhor email?"
-          register={register}
-          name="email"
-          error={errors.email?.message}
-        />
-        <Input
-          label="Senha"
-          icon={FiLock}
-          placeholder="Uma senha bem Forte"
-          register={register}
-          name="password"
-          error={errors.password?.message}
-        />
-        <Input
-          label="Confirmação de Senha"
-          icon={FiLock}
-          placeholder="Confirme a senha"
-          register={register}
-          name="passwordConfirm"
-          error={errors.passwordConfirm?.message}
-        />
-        <Button type="submit">Cadastrar</Button>
-        <p>
-          Já tem uma conta? Faça <Link to="/login">login</Link>
-        </p>
-      </form>
-    </Content>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
+      <Content>
+        <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <h1>Cadastro</h1>
+          <Input
+            label="Nome"
+            icon={FiUser}
+            placeholder="Qual o seu nome completo?"
+            register={register}
+            name="name"
+            error={errors.name?.message}
+          />
+          <Input
+            label="Email"
+            icon={FiMail}
+            placeholder="Seu melhor email?"
+            register={register}
+            name="email"
+            error={errors.email?.message}
+          />
+          <Input
+            label="Senha"
+            icon={FiLock}
+            placeholder="Uma senha bem Forte"
+            register={register}
+            name="password"
+            error={errors.password?.message}
+          />
+          <Input
+            label="Confirmação de Senha"
+            icon={FiLock}
+            placeholder="Confirme a senha"
+            register={register}
+            name="passwordConfirm"
+            error={errors.passwordConfirm?.message}
+          />
+          <Button type="submit">Cadastrar</Button>
+          <p>
+            Já tem uma conta? Faça <Link to="/login">login</Link>
+          </p>
+        </form>
+      </Content>
+    </motion.div>
   );
 }
 

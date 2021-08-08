@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 function Dashboard({ authenticated, setAuthenticated }) {
   const [tasks, setTasks] = useState([]);
@@ -90,38 +91,45 @@ function Dashboard({ authenticated, setAuthenticated }) {
   }
 
   return (
-    <Container>
-      <InputContainer onSubmit={handleSubmit(onSubmit)}>
-        <time>
-          {new Date().toLocaleDateString("pt-BR", {
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          })}
-        </time>
-        <div>
-          <Input
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-            icon={FiEdit2}
-            placeholder="Nova tarefa"
-            register={register}
-            name="task"
-          />
-          <Button type="submit">Adicionar</Button>
-        </div>
-      </InputContainer>
-      <TasksContainer>
-        {tasks.map((task) => (
-          <Card
-            key={task._id}
-            title={task.description}
-            date={task.createdAt}
-            onClick={() => handleCompleted(task._id)}
-          />
-        ))}
-      </TasksContainer>
-    </Container>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <Container>
+        <InputContainer onSubmit={handleSubmit(onSubmit)}>
+          <time>
+            {new Date().toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
+          </time>
+          <div>
+            <Input
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+              icon={FiEdit2}
+              placeholder="Nova tarefa"
+              register={register}
+              name="task"
+            />
+            <Button type="submit">Adicionar</Button>
+          </div>
+        </InputContainer>
+        <TasksContainer>
+          {tasks.map((task) => (
+            <Card
+              key={task._id}
+              title={task.description}
+              date={task.createdAt}
+              onClick={() => handleCompleted(task._id)}
+            />
+          ))}
+        </TasksContainer>
+      </Container>
+    </motion.div>
   );
 }
 
