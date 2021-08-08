@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { FiLogIn, FiLogOut, FiPlus } from "react-icons/fi";
 
-export default function Menu({ authenticated }) {
+export default function Menu({ authenticated, handleLogout }) {
   const user = JSON.parse(localStorage.getItem("@todo-list:user"));
 
   return (
@@ -31,7 +31,7 @@ export default function Menu({ authenticated }) {
           </Link>
           <span>{user && user.name}</span>
           <div>
-            <Link to="/login">
+            <Link to="/" onClick={handleLogout}>
               <FiLogOut size={32} />
               <span>Sair</span>
             </Link>

@@ -5,6 +5,7 @@ import Signup from "../pages/Signup";
 import Dashboard from "../pages/Dashboard";
 import Menu from "../components/Menu";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 function Routes() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -16,37 +17,45 @@ function Routes() {
       return setAuthenticated(true);
     }
   }, [authenticated]);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setAuthenticated(false);
+  };
+
   return (
-    <Switch>
-      <Route exact path="/">
-        <Menu authenticated={authenticated} />
-        <Home
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
-      </Route>
-      <Route path="/signup">
-        <Menu authenticated={authenticated} />
-        <Signup
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
-      </Route>
-      <Route path="/login">
-        <Menu authenticated={authenticated} />
-        <Login
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
-      </Route>
-      <Route path="/dashboard">
-        <Menu authenticated={authenticated} />
-        <Dashboard
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated}
-        />
-      </Route>
-    </Switch>
+    <AnimatePresence>
+      <Switch>
+        <Route exact path="/">
+          <Menu authenticated={authenticated} />
+          <Home
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        <Route path="/signup">
+          <Menu authenticated={authenticated} />
+          <Signup
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        <Route path="/login">
+          <Menu authenticated={authenticated} />
+          <Login
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        <Route path="/dashboard">
+          <Menu handleLogout={handleLogout} authenticated={authenticated} />
+          <Dashboard
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+      </Switch>
+    </AnimatePresence>
   );
 }
 

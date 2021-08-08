@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 function Login({ authenticated, setAuthenticated }) {
   const schema = yup.object().shape({
@@ -49,32 +50,39 @@ function Login({ authenticated, setAuthenticated }) {
   }
 
   return (
-    <Content>
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
-        <h1>Entrar</h1>
-        <Input
-          label="Email"
-          icon={FiMail}
-          placeholder="Seu melhor email?"
-          register={register}
-          name="email"
-          error={errors.email?.message}
-        />
-        <Input
-          label="Senha"
-          icon={FiLock}
-          placeholder="Uma senha bem Forte"
-          register={register}
-          name="password"
-          error={errors.password?.message}
-        />
-        <Button type="submit">Entrar</Button>
-        <p>
-          Ainda não possui uma conta? Faça seu{" "}
-          <Link to="/signup">cadastro</Link>
-        </p>
-      </form>
-    </Content>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
+      <Content>
+        <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <h1>Entrar</h1>
+          <Input
+            label="Email"
+            icon={FiMail}
+            placeholder="Seu melhor email?"
+            register={register}
+            name="email"
+            error={errors.email?.message}
+          />
+          <Input
+            label="Senha"
+            icon={FiLock}
+            placeholder="Uma senha bem Forte"
+            register={register}
+            name="password"
+            error={errors.password?.message}
+          />
+          <Button type="submit">Entrar</Button>
+          <p>
+            Ainda não possui uma conta? Faça seu{" "}
+            <Link to="/signup">cadastro</Link>
+          </p>
+        </form>
+      </Content>
+    </motion.div>
   );
 }
 
